@@ -18,7 +18,3 @@ export const getImages = async params => {
   });
   return response.data.hits;
 };
-
-export default {
-  getImages,
-};

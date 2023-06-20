@@ -1,7 +1,7 @@
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
 import React, { Component } from 'react';
-import api from './API/api';
+import { getImages } from './API/api';
 import { Loader } from './Loader/Loader';
 import { STATUS } from 'constants/status.constants';
 import { Button } from './Button/Button';
@@ -21,7 +21,7 @@ export class App extends Component {
   fetchImages = async ({ page = 1, search = '' } = {}) => {
     this.setState({ status: STATUS.loading });
     try {
-      const images = await api.getImages({ page, q: search });
+      const images = await getImages({ page, q: search });
       this.setState(
         prevState => {
           const newImages = [...prevState.images, ...images];
