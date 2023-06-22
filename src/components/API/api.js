@@ -6,15 +6,16 @@ const imagesApi = axios.create({
   baseURL: `https://pixabay.com/api/`,
 });
 
-export const getImages = async params => {
+export const getData = async (query, page) => {
   const response = await imagesApi.get('', {
     params: {
       key: KEY,
       image_type: 'photo',
       orientation: 'horizontal',
       per_page: 12,
-      ...params,
+      q: query,
+      page,
     },
   });
-  return response.data.hits;
+  return response.data;
 };

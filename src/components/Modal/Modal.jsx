@@ -26,16 +26,11 @@ export class Modal extends Component {
   };
 
   render() {
-    const { onClickClose, image } = this.props;
-
     return createPortal(
       <div className="Overlay" onClick={this.handleOverlayClick}>
         <div className="Modal">
-          <img className="Modal-image" src={image} alt="error" />
+          <img className="Modal-image" src={this.props.image} alt="error" />
         </div>
-        <button type="button" className="Modal-close" onClick={onClickClose}>
-          <span className="close">&times;</span>
-        </button>
       </div>,
       modalRoot
     );
