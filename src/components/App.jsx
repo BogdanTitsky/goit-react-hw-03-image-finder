@@ -71,7 +71,7 @@ export class App extends Component {
     const { isLoading, images, showModal, selectedImage, total, page } =
       this.state;
     const totalPage = Math.ceil(total / 12);
-    console.log(totalPage);
+
     return (
       <div className="app">
         <Searchbar onSearch={this.handleSearch} />
