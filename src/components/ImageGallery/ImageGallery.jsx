@@ -19,7 +19,14 @@ export class ImageGallery extends Component {
     );
   }
 }
+
 ImageGallery.propTypes = {
-  images: PropTypes.array.isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      webformatURL: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      largeImageURL: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   toggleModal: PropTypes.func.isRequired,
 };
